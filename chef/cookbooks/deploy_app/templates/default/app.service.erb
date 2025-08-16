@@ -1,0 +1,14 @@
+[Unit]
+Description=Hello Jenkins Spring Boot Service
+After=network.target
+
+[Service]
+Type=simple
+User=<%= @service_user %>
+WorkingDirectory=<%= @install_dir %>
+ExecStart=/usr/bin/java -jar <%= @install_dir %>/app.jar
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
