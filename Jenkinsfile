@@ -1,6 +1,11 @@
 pipeline {
   agent any
 
+  tools {
+    jdk 'java'       // this must match the name you set in "Global Tool Configuration"
+    maven 'maven'    // this must match the Maven name you set
+  }
+  
   options {
     buildDiscarder(logRotator(numToKeepStr: '20'))
     // timestamps()
